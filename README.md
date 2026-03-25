@@ -190,14 +190,14 @@ use Livewire\Component;
 class CourseList extends Component
 {
     // Esta propiedad será reactiva gracias a wire:model en la vista
-    protected string $_search = '';
+    public string $search = '';
     
     // Forzamos el uso del layout de invitados que no pide usuario logueado
     #[Layout('layouts.app')]
     public function render(CourseService $courseService): View
     {
         return view('livewire.course-list', [
-            'courses' => $courseService->getPublishedCourses($this->_search),
+            'courses' => $courseService->getPublishedCourses($this->search),
         ]);
     }
 }
